@@ -1,0 +1,19 @@
+<% if @rating.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+    <ul>
+      <% @rating.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form.fields_for :rating_scores do |rs_form| %>
+  <div class="field">
+    <%= rs_form.label :score, rs_form.object.rating_category.name %>
+    <%= rs_form.number_field :score, in: 1..5, required: true %>
+    <%= rs_form.hidden_field :rating_category_id, value: rs_form.object.rating_category_id %>
+  </div>
+<% end %>

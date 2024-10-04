@@ -1,4 +1,9 @@
+<% average = movie.average_scores_per_category %>
+<% total = movie.overall_average_score.to_s %>
 <div id="<%= dom_id movie %>">
-  <div>Name: <%= movie.name %></div>
-  <div>Description: <%= movie.description %></div>
+  <div><strong>Name:</strong> <%= movie.name %></div>
+  <div><strong>Description:</strong> <%= movie.description %></div>
+  <div><strong>Ratings: <%= total %></strong>
+  <%= average %>
+  </div>
 </div>

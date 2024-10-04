@@ -1,0 +1,8 @@
+<h3> Score: <%= rating.rating_scores.average(:score) %> </h3>
+<% rating.rating_scores.each do |score| %>
+  <span>
+    <%= score.rating_category.name %>
+    <strong><%= score.score %></strong>
+    &nbsp | &nbsp
+  </span>
+<% end %>

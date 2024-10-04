@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Ratings for "<%= link_to @movie.name, @movie %>"</h1>
+<%= link_to "Back to Movies", movies_path %>
+&nbsp
+<%= link_to "New rating", new_movie_rating_path(@movie) %>
+
+<div id="ratings">
+  <% @ratings.each do |rating| %>
+    <%= render rating %>
+    <hr>
+  <% end %>
+</div>
+
